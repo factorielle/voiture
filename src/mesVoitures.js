@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Voiture from './voiture';
+import Header from './header';
 
 class MesVoiture extends Component {
     constructor(props){
@@ -20,24 +21,31 @@ class MesVoiture extends Component {
         annee:'2002',
         },] 
     }
+    getAge(anneeVoiture) {
+      const anneeActuelle=new Date().getFullYear();
+      return anneeActuelle-anneeVoiture
+
+    }
     render() {
-      return   <div>
-      <h2>Liste de Mes Voitures</h2>
+      return   <>
+     <Header/>
       <table>
         <thead>
           <tr>
             <th>Marque</th>
             <th>Couleur</th>
             <th>Année</th>
+            <th>Age</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {this.state.map((voiture, index) => (
-            <Voiture  voiture={voiture} />
+          {this.state.map(({marque, couleur,annee}, index) => (
+            <Voiture  marque={marque} couleur={couleur} annee={annee} age={this.getAge(annee)} />
           ))}
         </tbody>
       </table>
-    </div>;
+    </>;
     }
   }
 

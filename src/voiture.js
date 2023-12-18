@@ -1,12 +1,18 @@
+let count=0;
+function afficherAge(){
+  count++;
+  console.log(count)
+}
 
-
-function Voiture({voiture}){
-    
+function Voiture({marque, couleur, annee, age }){
+ 
     return (
       <tr>
-        <td>{voiture.marque}</td>
-        <td>{voiture.couleur}</td>
-        <td>{voiture.annee}</td>
+        <td>{marque}</td>
+        <td>{couleur}</td>
+        <td>{annee}</td>
+        <td>{}</td>
+        <td><button onClick={afficherAge()}>Afficher age</button></td>
 
       </tr>
     )
