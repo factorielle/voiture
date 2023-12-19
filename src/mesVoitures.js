@@ -41,7 +41,7 @@ class MesVoiture extends Component {
         </thead>
         <tbody>
           {this.state.map(({marque, couleur,annee}, index) => (
-            <Voiture  marque={marque} couleur={couleur} annee={annee} age={this.getAge(annee)} />
+            <Voiture key={index} marque={marque} couleur={couleur} annee={annee} age={this.getAge(annee)} />
           ))}
         </tbody>
       </table>
